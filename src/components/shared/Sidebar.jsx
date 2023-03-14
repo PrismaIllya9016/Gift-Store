@@ -18,10 +18,14 @@ const Sidebar = (props) => {
     >
       <div>
         <ul className="pl-4">
-          <h1 className="text-2xl text-gray-300 uppercase font-bold text-center my-5">
-            LOGO
-          </h1>
-          <li className="bg-[#353941] p-4 rounded-tl-xl rounded-bl-xl">
+          <div className="text-2xl text-gray-300 uppercase font-bold text-center my-5">
+            <img
+              src="public\twitter_400x400.png"
+              className="rounded-full"
+              alt=""
+            />
+          </div>
+          <li className="bg-gray-800 p-4 rounded-tl-xl rounded-bl-xl">
             <a
               href="#"
               className="bg-[#80161f] p-4 flex justify-center rounded-xl text-white"
@@ -29,7 +33,7 @@ const Sidebar = (props) => {
               <RiStore2Line className="text-2xl " />
             </a>
           </li>
-          <li className="hover:bg-[#353941] p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
+          <li className="hover:bg-gray-800 p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <a
               href="#"
               className="bg-[#80161f] p-4 flex justify-center rounded-xl group-hover:text-white transition-colors"
@@ -37,7 +41,7 @@ const Sidebar = (props) => {
               <RiShoppingBag3Line className="text-2xl " />
             </a>
           </li>
-          <li className="hover:bg-[#353941] p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
+          <li className="hover:bg-gray-800 p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <a
               href="#"
               className="bg-[#80161f] p-4 flex justify-center rounded-xl group-hover:text-white transition-colors"
@@ -45,7 +49,7 @@ const Sidebar = (props) => {
               <RiMailLine className="text-2xl " />
             </a>
           </li>
-          <li className="hover:bg-[#353941] p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
+          <li className="hover:bg-gray-800 p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <a
               href="#"
               className="bg-[#80161f] p-4 flex justify-center rounded-xl group-hover:text-white transition-colors"
@@ -53,7 +57,7 @@ const Sidebar = (props) => {
               <RiNotification2Line className="text-2xl " />
             </a>
           </li>
-          <li className="hover:bg-[#353941] p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
+          <li className="hover:bg-gray-800 p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <a
               href="#"
               className="bg-[#80161f] p-4 flex justify-center rounded-xl group-hover:text-white transition-colors"
@@ -65,7 +69,7 @@ const Sidebar = (props) => {
       </div>
       <div>
         <ul className="pl-4">
-          <li className="hover:bg-[#353941] p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
+          <li className="hover:bg-gray-800 p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
             <a
               href="#"
               className="bg-[#80161f] p-4 flex justify-center rounded-xl group-hover:text-white transition-colors"
