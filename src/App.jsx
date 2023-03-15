@@ -172,10 +172,50 @@ function App() {
           <div className="relative pt-20 text-gray-300 p-8">
             <RiCloseFill className="absolute left-4 top-4 p-2 box-content text-gray-300 bg-red-600 rounded-full text-xl" />
             <h1 className="text-2xl my-4">Order #34553</h1>
-            <div className="flex items-center gap-4 flex-wrap">
-              <button className="bg-gray-600 text-white py-2 px-4 rounded-xl">Order</button>
-              <button className=" hover:bg-gray-600 text-white py-2 px-4 rounded-xl border border-gray-600">Order</button>
-              <button className=" hover:bg-gray-600 text-white py-2 px-4 rounded-xl border border-gray-600">Order</button>
+            {/*Tabs*/}
+            <div className="flex items-center gap-4 flex-wrap mb-8">
+              <button className="bg-gray-600 text-white py-2 px-4 text-sm rounded-xl">
+                Order
+              </button>
+              <button className=" hover:bg-gray-600 text-white py-2 px-4 rounded-xl border text-sm border-gray-600">
+                Past Orders
+              </button>
+              <button className=" hover:bg-gray-600 text-white py-2 px-4 rounded-xl border text-sm border-gray-600">
+                Delivery
+              </button>
+            </div>
+            {/*Cart */}
+            <div>
+              <div className="grid grid-cols-6 mb-4 p-4">
+                <h5 className="col-span-4">Item</h5>
+                <h5>Qty</h5>
+                <h5>Price</h5>
+              </div>
+              {/* Orders Card */}
+              <div className="bg-gray-600 p-4 rounded-xl">
+                <div className="grid grid-cols-6">
+                  {/*Product Description*/}
+                  <div className="flex items-center gap-2 col-span-4">
+                    <img
+                      className="w-12 h-12 rounded-full object-cover"
+                      src="https://m.media-amazon.com/images/I/61Rf6dXk9YL._AC_SL1000_.jpg"
+                      alt=""
+                    />
+                    <div>
+                      <h5 className="text-sm">Combat aircra...</h5>
+                      <p className="text-xs text-gray-800">$378.15</p>
+                    </div>
+                  </div>
+                  {/*QTY*/}
+                  <div className="px-2">
+                    <span>2</span>
+                  </div>
+                  {/*Price*/}
+                  <div>
+                    <span>$4.58</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
