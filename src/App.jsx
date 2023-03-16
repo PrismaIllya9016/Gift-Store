@@ -7,6 +7,7 @@ import {
   RiCloseFill,
   RiSearch2Line,
   RiArrowDownSLine,
+  RiDeleteBin2Line,
 } from "react-icons/ri";
 //Component
 import Sidebar from "./components/shared/Sidebar.jsx";
@@ -17,6 +18,12 @@ function App() {
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+    setShowOrder(false);
+  };
+
+  const toggleOrders = () => {
+    setShowOrder(!showOrder);
+    setShowMenu(false);
   };
 
   return (
@@ -30,15 +37,15 @@ function App() {
         <button className="p-2">
           <RiAddFill />
         </button>
-        <button className="p-2">
+        <button onClick={toggleOrders} className="p-2">
           <RiShoppingBag3Line />
         </button>
         <button onClick={toggleMenu} className="p-2">
           {showMenu ? <RiCloseFill /> : <RiMenuLine />}
         </button>
       </nav>
-      <main className="lg:pl-32 grid grid-cols-1 lg:grid-cols-8 p-4 pb-20">
-        <div className="lg:col-span-6 md:p-8">
+      <main className="lg:pl-32 grid grid-cols-1 lg:grid-cols-8 pb-20">
+        <div className="lg:col-span-6 md:p-8 p-4">
           {/*Header*/}
           <header className="p-4">
             {/*Title and Search*/}
@@ -107,7 +114,7 @@ function App() {
               />
               <p className="text-xl">Wood toy airplane</p>
               <span className="text-gray-400">$50</span>
-              <p className="text-gray-600">8 units avaidable</p>
+              <p className="text-gray-600">1 unit avaidable</p>
             </div>
             {/*Card*/}
             <div className="bg-gray-900 p-8 rounded-xl flex flex-col items-center gap-2 text-gray-300 text-center">
@@ -134,43 +141,48 @@ function App() {
             {/*Card*/}
             <div className="bg-gray-900 p-8 rounded-xl flex flex-col items-center gap-2 text-gray-300 text-center">
               <img
-                src="https://m.media-amazon.com/images/I/61Rf6dXk9YL._AC_SL1000_.jpg"
+                src="https://cdn.shopify.com/s/files/1/1226/7914/products/IN71.jpg?v=1674157761"
                 className="w-40 h-40 object-cover -mt-20 rounded-full shadow-2xl"
                 alt=""
               />
-              <p className="text-xl">Combat aircraft model, night light</p>
-              <span className="text-gray-400">$378.15</span>
-              <p className="text-gray-600">15 units avaidable</p>
+              <p className="text-xl">SR-71 Blackbird</p>
+              <span className="text-gray-400">$322.05</span>
+              <p className="text-gray-600">45 units avaidable</p>
             </div>
             {/*Card*/}
             <div className="bg-gray-900 p-8 rounded-xl flex flex-col items-center gap-2 text-gray-300 text-center">
               <img
-                src="https://m.media-amazon.com/images/I/61Rf6dXk9YL._AC_SL1000_.jpg"
+                src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71wKGBIcGrL._AC_SL1500_.jpg"
                 className="w-40 h-40 object-cover -mt-20 rounded-full shadow-2xl"
                 alt=""
               />
-              <p className="text-xl">Combat aircraft model, night light</p>
-              <span className="text-gray-400">$378.15</span>
-              <p className="text-gray-600">15 units avaidable</p>
+              <p className="text-xl">Transbordador espacial Rocket Toy</p>
+              <span className="text-gray-400">$455.81</span>
+              <p className="text-gray-600">9 units avaidable</p>
             </div>
             {/*Card*/}
             <div className="bg-gray-900 p-8 rounded-xl flex flex-col items-center gap-2 text-gray-300 text-center">
               <img
-                src="https://m.media-amazon.com/images/I/61Rf6dXk9YL._AC_SL1000_.jpg"
+                src="https://cdn.shopify.com/s/files/1/1226/7914/products/INSPSH_4e9ac01d-c6a3-4085-b358-dde27409ecb0.jpg?v=1556552789"
                 className="w-40 h-40 object-cover -mt-20 rounded-full shadow-2xl"
                 alt=""
               />
-              <p className="text-xl">Combat aircraft model, night light</p>
-              <span className="text-gray-400">$378.15</span>
-              <p className="text-gray-600">15 units avaidable</p>
+              <p className="text-xl">InAir E-Z Build Model Kit - Space Shuttle</p>
+              <span className="text-gray-400">$379.05</span>
+              <p className="text-gray-600">Last available!</p>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-2 fixed lg:static right-0 top-0 bg-[#80161f] w-full h-full">
+        <div
+          className={`lg:col-span-2 fixed  top-0 bg-[#80161f] w-full h-full transition-all lg:right-0 lg:w-96
+        ${showOrder ? "right-0" : "-right-full"}`}
+        >
           {/*Cart*/}
-          <div className="relative pt-20 text-gray-300 p-8">
-            <RiCloseFill className="absolute left-4 top-4 p-2 box-content text-gray-300 bg-red-600 rounded-full text-xl" />
+          <div className="relative lg:pt-8 pt-16 text-gray-300 p-8  h-full">
+            <button className="lg:hidden" onClick={toggleOrders}>
+              <RiCloseFill className="absolute left-4 top-4 p-2 box-content text-gray-300 bg-red-600 rounded-full text-xl" />
+            </button>
             <h1 className="text-2xl my-4">Order #34553</h1>
             {/*Tabs*/}
             <div className="flex items-center gap-4 flex-wrap mb-8">
@@ -191,30 +203,184 @@ function App() {
                 <h5>Qty</h5>
                 <h5>Price</h5>
               </div>
-              {/* Orders Card */}
-              <div className="bg-gray-600 p-4 rounded-xl">
-                <div className="grid grid-cols-6">
-                  {/*Product Description*/}
-                  <div className="flex items-center gap-2 col-span-4">
-                    <img
-                      className="w-12 h-12 rounded-full object-cover"
-                      src="https://m.media-amazon.com/images/I/61Rf6dXk9YL._AC_SL1000_.jpg"
-                      alt=""
-                    />
+              {/*Products*/}
+              <div className="h-[400px] md:h-[700px] lg:h-[540px] overflow-scroll">
+                {/* Orders Card */}
+                <div className="bg-gray-600 p-4 rounded-xl mb-4">
+                  <div className="grid grid-cols-6">
+                    {/*Product Description*/}
+                    <div className="flex items-center gap-2 col-span-4 mb-2">
+                      <img
+                        className="w-12 h-12 rounded-full object-cover"
+                        src="https://m.media-amazon.com/images/I/61Rf6dXk9YL._AC_SL1000_.jpg"
+                        alt=""
+                      />
+                      <div>
+                        <h5 className="text-sm">Combat aircra...</h5>
+                        <p className="text-xs text-gray-800">$378.15</p>
+                      </div>
+                    </div>
+                    {/*QTY*/}
+                    <div className="px-2">
+                      <span>2</span>
+                    </div>
+                    {/*Price*/}
                     <div>
-                      <h5 className="text-sm">Combat aircra...</h5>
-                      <p className="text-xs text-gray-800">$378.15</p>
+                      <span>$4.58</span>
                     </div>
                   </div>
-                  {/*QTY*/}
-                  <div className="px-2">
-                    <span>2</span>
-                  </div>
-                  {/*Price*/}
-                  <div>
-                    <span>$4.58</span>
+                  {/*Comments*/}
+                  <div className="grid grid-cols-6 items-center gap-2">
+                    <div className=" col-span-4">
+                      <input
+                        className="bg-gray-800 rounded-lg px-2 py-2 outline-none"
+                        placeholder="Leave a comment"
+                        type="text"
+                      />
+                    </div>
+                    <div className="col-span-2 text-center ml-9 ">
+                      <button className="border border-red-500 p-2 rounded-lg">
+                        <RiDeleteBin2Line className="text-red-500 text-2xl" />
+                      </button>
+                    </div>
                   </div>
                 </div>
+                {/* Orders Card */}
+                <div className="bg-gray-600 p-4 rounded-xl mb-4">
+                  <div className="grid grid-cols-6">
+                    {/*Product Description*/}
+                    <div className="flex items-center gap-2 col-span-4 mb-2">
+                      <img
+                        className="w-12 h-12 rounded-full object-cover"
+                        src="https://m.media-amazon.com/images/I/61Rf6dXk9YL._AC_SL1000_.jpg"
+                        alt=""
+                      />
+                      <div>
+                        <h5 className="text-sm">Combat aircra...</h5>
+                        <p className="text-xs text-gray-800">$378.15</p>
+                      </div>
+                    </div>
+                    {/*QTY*/}
+                    <div className="px-2">
+                      <span>2</span>
+                    </div>
+                    {/*Price*/}
+                    <div>
+                      <span>$4.58</span>
+                    </div>
+                  </div>
+                  {/*Comments*/}
+                  <div className="grid grid-cols-6 items-center gap-2">
+                    <div className=" col-span-4">
+                      <input
+                        className="bg-gray-800 rounded-lg px-2 py-2 outline-none"
+                        placeholder="Leave a comment"
+                        type="text"
+                      />
+                    </div>
+                    <div className="col-span-2 text-center ml-9 ">
+                      <button className="border border-red-500 p-2 rounded-lg">
+                        <RiDeleteBin2Line className="text-red-500 text-2xl" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                {/* Orders Card */}
+                <div className="bg-gray-600 p-4 rounded-xl mb-4">
+                  <div className="grid grid-cols-6">
+                    {/*Product Description*/}
+                    <div className="flex items-center gap-2 col-span-4 mb-2">
+                      <img
+                        className="w-12 h-12 rounded-full object-cover"
+                        src="https://m.media-amazon.com/images/I/61Rf6dXk9YL._AC_SL1000_.jpg"
+                        alt=""
+                      />
+                      <div>
+                        <h5 className="text-sm">Combat aircra...</h5>
+                        <p className="text-xs text-gray-800">$378.15</p>
+                      </div>
+                    </div>
+                    {/*QTY*/}
+                    <div className="px-2">
+                      <span>2</span>
+                    </div>
+                    {/*Price*/}
+                    <div>
+                      <span>$4.58</span>
+                    </div>
+                  </div>
+                  {/*Comments*/}
+                  <div className="grid grid-cols-6 items-center gap-2">
+                    <div className=" col-span-4">
+                      <input
+                        className="bg-gray-800 rounded-lg px-2 py-2 outline-none"
+                        placeholder="Leave a comment"
+                        type="text"
+                      />
+                    </div>
+                    <div className="col-span-2 text-center ml-9 ">
+                      <button className="border border-red-500 p-2 rounded-lg">
+                        <RiDeleteBin2Line className="text-red-500 text-2xl" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                {/* Orders Card */}
+                <div className="bg-gray-600 p-4 rounded-xl mb-4">
+                  <div className="grid grid-cols-6">
+                    {/*Product Description*/}
+                    <div className="flex items-center gap-2 col-span-4 mb-2">
+                      <img
+                        className="w-12 h-12 rounded-full object-cover"
+                        src="https://m.media-amazon.com/images/I/61Rf6dXk9YL._AC_SL1000_.jpg"
+                        alt=""
+                      />
+                      <div>
+                        <h5 className="text-sm">Combat aircra...</h5>
+                        <p className="text-xs text-gray-800">$378.15</p>
+                      </div>
+                    </div>
+                    {/*QTY*/}
+                    <div className="px-2">
+                      <span>2</span>
+                    </div>
+                    {/*Price*/}
+                    <div>
+                      <span>$4.58</span>
+                    </div>
+                  </div>
+                  {/*Comments*/}
+                  <div className="grid grid-cols-6 items-center gap-2">
+                    <div className=" col-span-4">
+                      <input
+                        className="bg-gray-800 rounded-lg px-2 py-2 outline-none"
+                        placeholder="Leave a comment"
+                        type="text"
+                      />
+                    </div>
+                    <div className="col-span-2 text-center ml-9 ">
+                      <button className="border border-red-500 p-2 rounded-lg">
+                        <RiDeleteBin2Line className="text-red-500 text-2xl" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/*Submit Payment*/}
+            <div className="bg-gray-600 absolute bottom-0 left-0 p-4 w-full">
+              <div className="flex items-center justify-between mb-4">
+                <span className=""> Discount </span>
+                <span>$0</span>
+              </div>
+              <div className="flex items-center justify-between mb-6">
+                <span> Sub total </span>
+                <span>$123213</span>
+              </div>
+              <div>
+                <button className="bg-[#80161f] w-full py-2 px-4 rounded-lg">
+                  Continue to payment
+                </button>
               </div>
             </div>
           </div>
