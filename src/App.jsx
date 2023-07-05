@@ -130,7 +130,7 @@ function App() {
             {/*Card*/}
             <div className="bg-gray-900 p-8 rounded-xl flex flex-col items-center gap-2 text-gray-300 text-center">
               <img
-                src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51bURq5U6wL._AC_SL1500_.jpg"
+                src="https://m.media-amazon.com/images/I/71PAotvhYhS._AC_SL1500_.jpg://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51bURq5U6wL._AC_SL1500_.jpg"
                 className="w-40 h-40 object-cover -mt-20 rounded-full shadow-2xl"
                 alt=""
               />
@@ -152,7 +152,7 @@ function App() {
             {/*Card*/}
             <div className="bg-gray-900 p-8 rounded-xl flex flex-col items-center gap-2 text-gray-300 text-center">
               <img
-                src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71wKGBIcGrL._AC_SL1500_.jpg"
+                src="https://m.media-amazon.com/images/I/71V12f+BFUL._AC_SL1500_.jpg://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71wKGBIcGrL._AC_SL1500_.jpg"
                 className="w-40 h-40 object-cover -mt-20 rounded-full shadow-2xl"
                 alt=""
               />
@@ -167,7 +167,9 @@ function App() {
                 className="w-40 h-40 object-cover -mt-20 rounded-full shadow-2xl"
                 alt=""
               />
-              <p className="text-xl">InAir E-Z Build Model Kit - Space Shuttle</p>
+              <p className="text-xl">
+                InAir E-Z Build Model Kit - Space Shuttle
+              </p>
               <span className="text-gray-400">$379.05</span>
               <p className="text-gray-600">Last available!</p>
             </div>
